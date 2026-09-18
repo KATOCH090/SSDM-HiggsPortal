@@ -1,0 +1,394 @@
+make -C work
+make[1]: Entering directory '/home/rishabh-katoch/HEPTools/micromegas_6.2.3/SSDM_HP/work'
+rm -f tmp/safe
+../../CalcHEP_src/bin/s_calchep -blind "{[[{[[[[[[{}0"
+../../CalcHEP_src/bin/make_VandP models 1
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../../CalcHEP_src/include   -c -o VandP.o VandP.c
+ar rv work_aux.a VandP.o
+r - VandP.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../../CalcHEP_src/include   -c -o path.o path.c
+ar rv work_aux.a path.o
+r - path.o
+ranlib work_aux.a 
+rm -f VandP.o  path.o
+make[1]: Leaving directory '/home/rishabh-katoch/HEPTools/micromegas_6.2.3/SSDM_HP/work'
+make -C lib
+make[1]: Entering directory '/home/rishabh-katoch/HEPTools/micromegas_6.2.3/SSDM_HP/lib'
+gcc -g -fsigned-char -std=gnu99 -fPIC   -c -o model.o model.c
+ar rv aLib.a model.o
+r - model.o
+ranlib aLib.a
+rm -f model.o
+make[1]: Leaving directory '/home/rishabh-katoch/HEPTools/micromegas_6.2.3/SSDM_HP/lib'
+make -C ../sources
+make[1]: Entering directory '/home/rishabh-katoch/HEPTools/micromegas_6.2.3/sources'
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o 22_par.o 22_par.c
+22_par.c: In function ‘kin22_par’:
+22_par.c:103:26: warning: format ‘%E’ expects argument of type ‘double’, but argument 2 has type ‘long double’ [-Wformat=]
+  103 |    printf("masses again %E %E %E %E\n", m[1],m[2],m[3],m[4]);
+      |                         ~^              ~~~~
+      |                          |               |
+      |                          double          long double
+      |                         %LE
+22_par.c:103:29: warning: format ‘%E’ expects argument of type ‘double’, but argument 3 has type ‘long double’ [-Wformat=]
+  103 |    printf("masses again %E %E %E %E\n", m[1],m[2],m[3],m[4]);
+      |                            ~^                ~~~~
+      |                             |                 |
+      |                             double            long double
+      |                            %LE
+22_par.c:103:32: warning: format ‘%E’ expects argument of type ‘double’, but argument 4 has type ‘long double’ [-Wformat=]
+  103 |    printf("masses again %E %E %E %E\n", m[1],m[2],m[3],m[4]);
+      |                               ~^                  ~~~~
+      |                                |                   |
+      |                                double              long double
+      |                               %LE
+22_par.c:103:35: warning: format ‘%E’ expects argument of type ‘double’, but argument 5 has type ‘long double’ [-Wformat=]
+  103 |    printf("masses again %E %E %E %E\n", m[1],m[2],m[3],m[4]);
+      |                                  ~^                    ~~~~
+      |                                   |                     |
+      |                                   double                long double
+      |                                  %LE
+ar rv ../lib/micromegas.a 22_par.o
+r - 22_par.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o all_22_ploc.o all_22_ploc.c
+ar rv ../lib/micromegas.a all_22_ploc.o
+r - all_22_ploc.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o bSpectra.o bSpectra.c
+ar rv ../lib/micromegas.a bSpectra.o
+r - bSpectra.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o common.o common.c
+ar rv ../lib/micromegas.a common.o
+r - common.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o cs22.o cs22.c
+ar rv ../lib/micromegas.a cs22.o
+r - cs22.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o DDexclusion.o DDexclusion.c
+ar rv ../lib/micromegas.a DDexclusion.o
+r - DDexclusion.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o DDspinDep.o DDspinDep.c
+ar rv ../lib/micromegas.a DDspinDep.o
+r - DDspinDep.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o DDvelocity.o DDvelocity.c
+ar rv ../lib/micromegas.a DDvelocity.o
+r - DDvelocity.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o decayFort.o decayFort.c
+ar rv ../lib/micromegas.a decayFort.o
+r - decayFort.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o directDet.o directDet.c
+directDet.c: In function ‘create2_th_model’:
+directDet.c:133:24: warning: ‘%s’ directive writing up to 9 bytes into a region of size between 8 and 17 [-Wformat-overflow=]
+  133 |    sprintf(aP_P,"%s\\09%s", pInvolved[0].aname, pInvolved[0].name);
+      |                        ^~                       ~~~~~~~~~~~~~~~~~
+directDet.c:133:4: note: ‘sprintf’ output between 4 and 22 bytes into a destination of size 20
+  133 |    sprintf(aP_P,"%s\\09%s", pInvolved[0].aname, pInvolved[0].name);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+directDet.c:111:26: warning: ‘%s’ directive writing up to 9 bytes into a region of size between 8 and 17 [-Wformat-overflow=]
+  111 |    { sprintf(aP_P,"%s\\09%s",pInvolved[i].aname,pInvolved[i].name);
+      |                          ^~
+directDet.c:111:6: note: ‘sprintf’ output between 4 and 22 bytes into a destination of size 20
+  111 |    { sprintf(aP_P,"%s\\09%s",pInvolved[i].aname,pInvolved[i].name);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ar rv ../lib/micromegas.a directDet.o
+r - directDet.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o directDetFort.o directDetFort.c
+ar rv ../lib/micromegas.a directDetFort.o
+r - directDetFort.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o displayPlot.o displayPlot.c
+ar rv ../lib/micromegas.a displayPlot.o
+r - displayPlot.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o dynamic_cs.o dynamic_cs.c
+ar rv ../lib/micromegas.a dynamic_cs.o
+r - dynamic_cs.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o f2c2f.o f2c2f.c
+ar rv ../lib/micromegas.a f2c2f.o
+r - f2c2f.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o feeble1.o feeble1.c
+ar rv ../lib/micromegas.a feeble1.o
+r - feeble1.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o fortran.o fortran.c
+ar rv ../lib/micromegas.a fortran.o
+r - fortran.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o freezein.o freezein.c
+freezein.c: In function ‘TdYdTfreezeIn’:
+freezein.c:1494:41: warning: too many arguments for format [-Wformat-extra-args]
+ 1494 |       { if( mm>arg->sqrtSmin ) { printf(" mm=%E sqrtSmin=%E     zero width in s-channel propagator \n",mm, (double)arg->sqrtSmin, ModelPrtcls[abs(pnum)].name ) ; exit(0); }
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ar rv ../lib/micromegas.a freezein.o
+r - freezein.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o hbBlock.o hbBlock.c
+ar rv ../lib/micromegas.a hbBlock.o
+r - hbBlock.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o higgsmass.o higgsmass.c
+ar rv ../lib/micromegas.a higgsmass.o
+r - higgsmass.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o ic22.o ic22.c
+ar rv ../lib/micromegas.a ic22.o
+r - ic22.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o kin23.o kin23.c
+kin23.c: In function ‘kinematic_24’:
+kin23.c:317:15: warning: format ‘%E’ expects argument of type ‘double’, but argument 2 has type ‘long double’ [-Wformat=]
+  317 |   { printf(" %E %E -> %E %E %E %E\n",P[0+i],P[4+i],P[8+i],P[12+i],P[16+i],P[20+i]);
+      |              ~^                      ~~~~~~
+      |               |                       |
+      |               double                  long double
+      |              %LE
+kin23.c:317:18: warning: format ‘%E’ expects argument of type ‘double’, but argument 3 has type ‘long double’ [-Wformat=]
+  317 |   { printf(" %E %E -> %E %E %E %E\n",P[0+i],P[4+i],P[8+i],P[12+i],P[16+i],P[20+i]);
+      |                 ~^                          ~~~~~~
+      |                  |                           |
+      |                  double                      long double
+      |                 %LE
+kin23.c:317:24: warning: format ‘%E’ expects argument of type ‘double’, but argument 4 has type ‘long double’ [-Wformat=]
+  317 |   { printf(" %E %E -> %E %E %E %E\n",P[0+i],P[4+i],P[8+i],P[12+i],P[16+i],P[20+i]);
+      |                       ~^                           ~~~~~~
+      |                        |                            |
+      |                        double                       long double
+      |                       %LE
+kin23.c:317:27: warning: format ‘%E’ expects argument of type ‘double’, but argument 5 has type ‘long double’ [-Wformat=]
+  317 |   { printf(" %E %E -> %E %E %E %E\n",P[0+i],P[4+i],P[8+i],P[12+i],P[16+i],P[20+i]);
+      |                          ~^                               ~~~~~~~
+      |                           |                                |
+      |                           double                           long double
+      |                          %LE
+kin23.c:317:30: warning: format ‘%E’ expects argument of type ‘double’, but argument 6 has type ‘long double’ [-Wformat=]
+  317 |   { printf(" %E %E -> %E %E %E %E\n",P[0+i],P[4+i],P[8+i],P[12+i],P[16+i],P[20+i]);
+      |                             ~^                                    ~~~~~~~
+      |                              |                                     |
+      |                              double                                long double
+      |                             %LE
+kin23.c:317:33: warning: format ‘%E’ expects argument of type ‘double’, but argument 7 has type ‘long double’ [-Wformat=]
+  317 |   { printf(" %E %E -> %E %E %E %E\n",P[0+i],P[4+i],P[8+i],P[12+i],P[16+i],P[20+i]);
+      |                                ~^                                         ~~~~~~~
+      |                                 |                                          |
+      |                                 double                                     long double
+      |                                %LE
+kin23.c:318:37: warning: format ‘%E’ expects argument of type ‘double’, but argument 2 has type ‘long double’ [-Wformat=]
+  318 |     printf("No Energy conservation %E i=%d  \n",sum/P[0],i);
+      |                                    ~^           ~~~~~~~~
+      |                                     |              |
+      |                                     double         long double
+      |                                    %LE
+kin23.c:326:73: warning: format ‘%E’ expects argument of type ‘double’, but argument 4 has type ‘long double’ [-Wformat=]
+  326 |     if(fabs(m-pmass[i])>pmass[0]*1.E-5) { printf("wrong mass %d (%E != %E) \n",i,m,pmass[i]); exit(33);}
+      |                                                                        ~^          ~~~~~~~~
+      |                                                                         |               |
+      |                                                                         double          long double
+      |                                                                        %LE
+ar rv ../lib/micromegas.a kin23.o
+r - kin23.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o lha+.o lha+.c
+ar rv ../lib/micromegas.a lha+.o
+r - lha+.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o LilithMO.o LilithMO.c
+ar rv ../lib/micromegas.a LilithMO.o
+r - LilithMO.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o limits.o limits.c
+ar rv ../lib/micromegas.a limits.o
+r - limits.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o lineq.o lineq.c
+ar rv ../lib/micromegas.a lineq.o
+r - lineq.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o maxGap.o maxGap.c
+ar rv ../lib/micromegas.a maxGap.o
+r - maxGap.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o neutrino.o neutrino.c
+neutrino.c: In function ‘readSunData’:
+neutrino.c:167:16: warning: use of assignment suppression and length modifier together in gnu_scanf format [-Wformat=]
+  167 |       fscanf(f,"%*lf %lf %lf %lf %*lf %*lf %lf %lf %lf %lf %lf %lf ",
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+neutrino.c:167:16: warning: use of assignment suppression and length modifier together in gnu_scanf format [-Wformat=]
+neutrino.c:167:16: warning: use of assignment suppression and length modifier together in gnu_scanf format [-Wformat=]
+neutrino.c: In function ‘readNuTable’:
+neutrino.c:428:44: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat=]
+  428 |     { printf("Format Error: file position %d\n",ftell(F));  cleanNuTab(T); return NULL;}
+      |                                           ~^    ~~~~~~~~
+      |                                            |    |
+      |                                            int  long int
+      |                                           %ld
+neutrino.c:450:62: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat=]
+  450 |       if(ix!=T->nX-1) { printf("Format Error: file position %d\n",ftell(F));cleanNuTab(T); return NULL;}
+      |                                                             ~^    ~~~~~~~~
+      |                                                              |    |
+      |                                                              int  long int
+      |                                                             %ld
+neutrino.c:461:60: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat=]
+  461 |     if(x!=T->x[ix]) { printf("Format Error: file position %d\n", ftell(F)); cleanNuTab(T); return NULL;}
+      |                                                           ~^     ~~~~~~~~
+      |                                                            |     |
+      |                                                            int   long int
+      |                                                           %ld
+neutrino.c: In function ‘calcSpectrum0’:
+neutrino.c:795:22: warning: ‘%s’ directive writing up to 9 bytes into a region of size between 7 and 16 [-Wformat-overflow=]
+  795 |   sprintf(lib,"omg_%s%s",name1L,name2L);
+      |                      ^~         ~~~~~~
+neutrino.c:795:3: note: ‘sprintf’ output between 5 and 23 bytes into a destination of size 20
+  795 |   sprintf(lib,"omg_%s%s",name1L,name2L);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ar rv ../lib/micromegas.a neutrino.o
+r - neutrino.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o oddPrtcls.o oddPrtcls.c
+ar rv ../lib/micromegas.a oddPrtcls.o
+r - oddPrtcls.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o omega.o omega.c
+omega.c: In function ‘dispalyVV’:
+omega.c:3708:32: warning: ‘%s’ directive writing up to 99 bytes into a region of size 90 [-Wformat-overflow=]
+ 3708 |      sprintf(mess, "Pcm^2*cs(\"%s\") nTab=%d",proc,nTab);
+      |                                ^~             ~~~~
+omega.c:3708:6: note: ‘sprintf’ output between 20 and 129 bytes into a destination of size 100
+ 3708 |      sprintf(mess, "Pcm^2*cs(\"%s\") nTab=%d",proc,nTab);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+omega.c: In function ‘vSigmaNstat’:
+omega.c:3832:39: warning: ‘sprintf’ may write a terminating nul past the end of the destination [-Wformat-overflow=]
+ 3832 |        sprintf(process,"%s,%s -> %s,%s", cL->pName[0],cL->pName[1],cL->pName[2],cL->pName[3]);
+      |                                       ^
+omega.c:3832:8: note: ‘sprintf’ output between 7 and 51 bytes into a destination of size 50
+ 3832 |        sprintf(process,"%s,%s -> %s,%s", cL->pName[0],cL->pName[1],cL->pName[2],cL->pName[3]);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+omega.c: In function ‘deltaYN’:
+omega.c:4822:56: warning: ‘sprintf’ may write a terminating nul past the end of the destination [-Wformat-overflow=]
+ 4822 |   for(int i=0;i<Ncdm;i++) { char ch[10]; sprintf(ch,"%d",i+1); Yeq[i]=YdmNEq(T,ch); dYeq[i]=(YdmNEq(T*1.01,ch)-Yeq[i])/(T*0.01*coef);}
+      |                                                        ^
+omega.c:4822:42: note: ‘sprintf’ output between 2 and 11 bytes into a destination of size 10
+ 4822 |   for(int i=0;i<Ncdm;i++) { char ch[10]; sprintf(ch,"%d",i+1); Yeq[i]=YdmNEq(T,ch); dYeq[i]=(YdmNEq(T*1.01,ch)-Yeq[i])/(T*0.01*coef);}
+      |                                          ^~~~~~~~~~~~~~~~~~~~
+omega.c: In function ‘findTstartN’:
+omega.c:4862:59: warning: ‘sprintf’ may write a terminating nul past the end of the destination [-Wformat-overflow=]
+ 4862 |      for(int i=0;i<Ncdm;i++) { char ch[10]; sprintf(ch,"%d",i+1); Yeq[i]=YdmNEq(T,ch); dYeq[i]=(YdmNEq(T*1.01,ch)-Yeq[i])/(T*0.01*coef);}
+      |                                                           ^
+omega.c:4862:45: note: ‘sprintf’ output between 2 and 11 bytes into a destination of size 10
+ 4862 |      for(int i=0;i<Ncdm;i++) { char ch[10]; sprintf(ch,"%d",i+1); Yeq[i]=YdmNEq(T,ch); dYeq[i]=(YdmNEq(T*1.01,ch)-Yeq[i])/(T*0.01*coef);}
+      |                                             ^~~~~~~~~~~~~~~~~~~~
+omega.c: In function ‘darkOmegaNInfl’:
+omega.c:5659:32: warning: ‘%d’ directive writing between 1 and 10 bytes into a region of size 5 [-Wformat-overflow=]
+ 5659 |      { char ch[5]; sprintf(ch,"%d",i+1);
+      |                                ^~
+omega.c:5659:31: note: directive argument in the range [1, 2147483647]
+ 5659 |      { char ch[5]; sprintf(ch,"%d",i+1);
+      |                               ^~~~
+omega.c:5659:20: note: ‘sprintf’ output between 2 and 11 bytes into a destination of size 5
+ 5659 |      { char ch[5]; sprintf(ch,"%d",i+1);
+      |                    ^~~~~~~~~~~~~~~~~~~~
+omega.c:5638:55: warning: ‘%d’ directive writing between 1 and 10 bytes into a region of size 5 [-Wformat-overflow=]
+ 5638 |      for(int i=0;i<Ncdm;i++) {char ch[5]; sprintf(ch,"%d",i+1); Yeq[i]=YdmNEq(T,ch);}
+      |                                                       ^~
+omega.c:5638:54: note: directive argument in the range [1, 2147483647]
+ 5638 |      for(int i=0;i<Ncdm;i++) {char ch[5]; sprintf(ch,"%d",i+1); Yeq[i]=YdmNEq(T,ch);}
+      |                                                      ^~~~
+omega.c:5638:43: note: ‘sprintf’ output between 2 and 11 bytes into a destination of size 5
+ 5638 |      for(int i=0;i<Ncdm;i++) {char ch[5]; sprintf(ch,"%d",i+1); Yeq[i]=YdmNEq(T,ch);}
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+ar rv ../lib/micromegas.a omega.o
+r - omega.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o pdt2.o pdt2.c
+ar rv ../lib/micromegas.a pdt2.o
+r - pdt2.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o propagate.o propagate.c
+ar rv ../lib/micromegas.a propagate.o
+r - propagate.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o pythonversion.o pythonversion.c
+ar rv ../lib/micromegas.a pythonversion.o
+r - pythonversion.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o SMhdecay.o SMhdecay.c
+ar rv ../lib/micromegas.a SMhdecay.o
+r - SMhdecay.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o smodels.o smodels.c
+ar rv ../lib/micromegas.a smodels.o
+r - smodels.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o Sommerfeld.o Sommerfeld.c
+ar rv ../lib/micromegas.a Sommerfeld.o
+r - Sommerfeld.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o spectra.o spectra.c
+spectra.c: In function ‘calcSpectrumPlus’:
+spectra.c:1173:31: warning: too many arguments for format [-Wformat-extra-args]
+ 1173 |       sprintf(lib+strlen(lib),"El1%dEl1d",abs(pTabPos(p[2])),abs(pTabPos(p[3])));
+      |                               ^~~~~~~~~~~
+spectra.c: In function ‘decaySpectrumStat’:
+spectra.c:344:32: warning: ‘%s’ directive writing up to 19 bytes into a region of size between 9 and 47 [-Wformat-overflow=]
+  344 |        sprintf(process,"%s->%s,%s,%s",p[0],p[1],p[2],p[3]);
+      |                                ^~               ~~~~
+spectra.c:344:8: note: ‘sprintf’ output between 5 and 81 bytes into a destination of size 50
+  344 |        sprintf(process,"%s->%s,%s,%s",p[0],p[1],p[2],p[3]);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+spectra.c: In function ‘calcSpectrum0’:
+spectra.c:527:27: warning: ‘%s’ directive writing up to 9 bytes into a region of size between 7 and 16 [-Wformat-overflow=]
+  527 |        sprintf(lib,"omg_%s%s",name1L,name2L);
+      |                           ^~         ~~~~~~
+spectra.c:527:8: note: ‘sprintf’ output between 5 and 23 bytes into a destination of size 20
+  527 |        sprintf(lib,"omg_%s%s",name1L,name2L);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ar rv ../lib/micromegas.a spectra.o
+r - spectra.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o spectraFort.o spectraFort.c
+ar rv ../lib/micromegas.a spectraFort.o
+r - spectraFort.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o stiff.o stiff.c
+ar rv ../lib/micromegas.a stiff.o
+r - stiff.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o superIso.o superIso.c
+ar rv ../lib/micromegas.a superIso.o
+r - superIso.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o tdUniverse.o tdUniverse.c
+ar rv ../lib/micromegas.a tdUniverse.o
+r - tdUniverse.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o tools.o tools.c
+tools.c: In function ‘addErrorMess’:
+tools.c:664:6: warning: format not a string literal and no format arguments [-Wformat-security]
+  664 |      sprintf(*All+len,one);
+      |      ^~~~~~~
+ar rv ../lib/micromegas.a tools.o
+r - tools.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o Twidth22.o Twidth22.c
+Twidth22.c: In function ‘tWidth21’:
+Twidth22.c:26:43: warning: format ‘%E’ expects a matching ‘double’ argument [-Wformat=]
+   26 |   if(show) printf("Thermal width %s (T=%.2E GeV)\n", name);
+      |                                        ~~~^
+      |                                           |
+      |                                           double
+Twidth22.c:144:41: warning: format ‘%E’ expects a matching ‘double’ argument [-Wformat=]
+  144 |        if(show) printf(" %s %s -> %s %.2E\n",p[0],p[1],p[2]);
+      |                                      ~~~^
+      |                                         |
+      |                                         double
+ar rv ../lib/micromegas.a Twidth22.o
+r - Twidth22.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o units.o units.c
+ar rv ../lib/micromegas.a units.o
+r - units.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o var_service.o var_service.c
+var_service.c: In function ‘printVar’:
+var_service.c:10:50: warning: format ‘%f’ expects argument of type ‘double’, but argument 4 has type ‘long double’ [-Wformat=]
+   10 |   for(i=0;i<nModelVars;i++) fprintf(f,"%-6.6s   %f\n", varNames[i], varValues[i]);
+      |                                                 ~^                  ~~~~~~~~~~~~
+      |                                                  |                           |
+      |                                                  double                      long double
+      |                                                 %Lf
+ar rv ../lib/micromegas.a var_service.o
+r - var_service.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o vsigma.o vsigma.c
+vsigma.c: In function ‘vSigmaPlus24’:
+vsigma.c:692:31: warning: too many arguments for format [-Wformat-extra-args]
+  692 |       sprintf(lib+strlen(lib),"El1%dEl1d",abs(pTabPos(p[2])),abs(pTabPos(p[3])));
+      |                               ^~~~~~~~~~~
+vsigma.c: In function ‘vSigmaPlus23’:
+vsigma.c:515:38: warning: ‘%s’ directive writing up to 99 bytes into a region of size between 55 and 88 [-Wformat-overflow=]
+  515 |    sprintf(proc23,"%s,%s->%s,_A_,_B_{%s{%s", p[0],p[1],p[l_],A,B);
+      |                                      ^~                      ~
+vsigma.c:515:4: note: ‘sprintf’ output between 14 and 245 bytes into a destination of size 100
+  515 |    sprintf(proc23,"%s,%s->%s,_A_,_B_{%s{%s", p[0],p[1],p[l_],A,B);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ar rv ../lib/micromegas.a vsigma.o
+r - vsigma.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o wPolar.o wPolar.c
+ar rv ../lib/micromegas.a wPolar.o
+r - wPolar.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o Zprimelim.o Zprimelim.c
+ar rv ../lib/micromegas.a Zprimelim.o
+r - Zprimelim.o
+ranlib ../lib/micromegas.a 
+rm -f *.o
+gcc -g -fsigned-char -std=gnu99 -fPIC -I../include   -c -o improveCS.o improveCS.c
+ar rv ../lib/dummy.a improveCS.o
+r - improveCS.o
+rm -f improveCS.o
+make[1]: Leaving directory '/home/rishabh-katoch/HEPTools/micromegas_6.2.3/sources'
+gcc  -g -fsigned-char -std=gnu99 -fPIC   -o main   main.c  lib/aLib.a ../lib/micromegas.a  /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/dynamic_me.a ../lib/micromegas.a work/work_aux.a  lib/aLib.a   /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/sqme_aux.so /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/libSLHAplus.a /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/num_c.a  /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/serv.a  /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/ntools.a  /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/serv.a /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/ntools.a /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/../lib/maxGap.so  /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/lhapdf.so  ../lib/dummy.a   -lX11 /home/rishabh-katoch/HEPTools/micromegas_6.2.3/CalcHEP_src/lib/dummy.a   -rdynamic -ldl   -lm   -lpthread 
